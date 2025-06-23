@@ -20,3 +20,4 @@ $allSlots = [
 
 $availableSlots = array_values(array_diff($allSlots, $bookedSlots));
 echo json_encode($availableSlots);
+?>
