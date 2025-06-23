@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // ✅ Limit to 2 appointments per email
-    $stmt = $conn->prepare("SELECT COUNT(*) FROM appointments WHERE email = ?");
+    $stmt = $conn->prepare("SELECT COUNT(*) FROM appointment WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $stmt->bind_result($email_count);
@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // ✅ Check if time slot is already booked for that day
-    $stmt = $conn->prepare("SELECT COUNT(*) FROM appointments WHERE appointment_date = ? AND appointment_time = ?");
+    $stmt = $conn->prepare("SELECT COUNT(*) FROM appointment WHERE appointment_date = ? AND appointment_time = ?");
     $stmt->bind_param("ss", $date, $time);
     $stmt->execute();
     $stmt->bind_result($slot_count);
@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // ✅ Insert into DB
-    $stmt = $conn->prepare("INSERT INTO appointments (first_name, last_name, email, phone, service, appointment_date, appointment_time) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO appointment (first_name, last_name, email, phone, service, appointment_date, appointment_time) VALUES (?, ?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("sssssss", $fname, $lname, $email, $phone, $services, $date, $time);
 
     if ($stmt->execute()) {

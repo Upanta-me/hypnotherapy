@@ -3,7 +3,7 @@ $requestedDate = $_GET['date'];
 $conn = new mysqli("localhost", "root", "", "appointment");
 
 $bookedSlots = [];
-$sql = "SELECT appointment_time FROM appointments WHERE appointment_date = ?";
+$sql = "SELECT appointment_time FROM appointment WHERE appointment_date = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $requestedDate);
 $stmt->execute();
