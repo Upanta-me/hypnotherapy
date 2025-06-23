@@ -459,6 +459,9 @@ body{
 	font-weight: 500;
 	font-size: 14px;
 }
+.hidden {
+    display: none;
+}
 
 /************************************/
 /**** 	   03. Header css		 ****/
