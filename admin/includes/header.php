@@ -22,7 +22,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel</title>
+    <title>Hypnotherapy and COSMIC HUB Admin Panel</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/all.min.css">
     <link rel="stylesheet" href="css/admin-style.css">
@@ -31,7 +31,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
     <!-- Admin Header -->
     <nav class="navbar navbar-expand-lg navbar-dark admin-header">
         <div class="container-fluid">
-            <a class="navbar-brand" href="dashboard.php">Admin</a>
+            <a class="navbar-brand" href="dashboard.php">Hypnotherapy and COSMIC HUB Admin Panel</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarAdmin" aria-controls="navbarAdmin" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>

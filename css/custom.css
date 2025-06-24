@@ -982,7 +982,6 @@ header.main-header .header-sticky.active{
     position: absolute;
     bottom: -80px;
     right: -25px;
-    background-image: url('../images/section-bg-img-1.svg');
     background-repeat: no-repeat;
     background-position: right bottom;
     background-size: cover;
@@ -1118,6 +1117,7 @@ header.main-header .header-sticky.active{
 .about-benefit-item-content h3{
 	font-size: 20px;
 	margin-bottom: 10px;
+	margin-left: 35px;
 }
 
 .about-benefit-item-content p{
@@ -1275,7 +1275,6 @@ header.main-header .header-sticky.active{
     position: absolute;
     top: -70px;
     left: -70px;
-    background-image: url('../images/section-bg-img-2.svg');
     background-repeat: no-repeat;
     background-position: top left;
     background-size: cover;
@@ -1419,7 +1418,6 @@ header.main-header .header-sticky.active{
 }
 
 .why-choose-item{
-	flex: 1 1 300px;
 	position: relative;
 	width: calc(25% - 20px);
 	background: var(--white-color);
@@ -1546,7 +1544,6 @@ header.main-header .header-sticky.active{
     position: absolute;
     bottom: 10px;
     right: -75px;
-    background-image: url('../images/section-bg-img-3.svg');
     background-repeat: no-repeat;
     background-position: bottom right;
     background-size: cover;
@@ -1924,7 +1921,6 @@ header.main-header .header-sticky.active{
     position: absolute;
     top: -120px;
     left: -80px;
-    background-image: url('../images/section-bg-img-1.svg');
     background-repeat: no-repeat;
     background-position: top left;
     background-size: cover;
@@ -1939,7 +1935,6 @@ header.main-header .header-sticky.active{
     position: absolute;
     bottom: 10px;
     right: -50px;
-    background-image: url('../images/section-bg-img-4.svg');
     background-repeat: no-repeat;
     background-position: bottom right;
     background-size: cover;
@@ -2503,7 +2498,6 @@ header.main-header .header-sticky.active{
     position: absolute;
     top: -90px;
     right: -60px;
-    background-image: url('../images/section-bg-img-1.svg');
     background-repeat: no-repeat;
     background-position: right top;
     background-size: cover;
@@ -2577,7 +2571,6 @@ header.main-header .header-sticky.active{
     position: absolute;
     top: 0;
     left: -100px;
-    background-image: url('../images/section-bg-img-3.svg');
     background-repeat: no-repeat;
     background-position: top left;
     background-size: cover;
@@ -3195,7 +3188,6 @@ header.main-header .header-sticky.active{
     position: absolute;
     top: -105px;
     right: -140px;
-    background-image: url(../images/section-bg-img-3.svg);
     background-repeat: no-repeat;
     background-position: top right;
     background-size: cover;
@@ -3322,7 +3314,6 @@ header.main-header .header-sticky.active{
     position: absolute;
     bottom: 0;
     right: -60px;
-    background-image: url('../images/section-bg-img-1.svg');
     background-repeat: no-repeat;
     background-position: right bottom;
     background-size: cover;
@@ -3441,7 +3432,6 @@ header.main-header .header-sticky.active{
     position: absolute;
     bottom: 50px;
     left: -70px;
-    background-image: url('../images/section-bg-img-2.svg');
     background-repeat: no-repeat;
     background-position: bottom left;
     background-size: cover;
@@ -3464,7 +3454,6 @@ header.main-header .header-sticky.active{
     position: absolute;
     top: 15%;
     left: -70px;
-    background-image: url('../images/section-bg-img-2.svg');
     background-repeat: no-repeat;
     background-position: top left;
     background-size: cover;
@@ -3478,7 +3467,6 @@ header.main-header .header-sticky.active{
     position: absolute;
     top: 40%;
     right: -95px;
-    background-image: url('../images/section-bg-img-1.svg');
     background-repeat: no-repeat;
     background-position: right center;
     background-size: cover;
@@ -3863,7 +3851,6 @@ header.main-header .header-sticky.active{
     position: absolute;
     top: 15%;
     left: -70px;
-    background-image: url('../images/section-bg-img-2.svg');
     background-repeat: no-repeat;
     background-position: top left;
     background-size: cover;
@@ -3877,7 +3864,6 @@ header.main-header .header-sticky.active{
     position: absolute;
     top: 40%;
     right: -95px;
-    background-image: url('../images/section-bg-img-1.svg');
     background-repeat: no-repeat;
     background-position: right center;
     background-size: cover;
@@ -4230,7 +4216,6 @@ header.main-header .header-sticky.active{
     position: absolute;
     top: 15%;
     left: -70px;
-    background-image: url('../images/section-bg-img-2.svg');
     background-repeat: no-repeat;
     background-position: top left;
     background-size: cover;
@@ -4244,7 +4229,6 @@ header.main-header .header-sticky.active{
     position: absolute;
     top: 40%;
     right: -95px;
-    background-image: url('../images/section-bg-img-1.svg');
     background-repeat: no-repeat;
     background-position: right center;
     background-size: cover;
@@ -4444,7 +4428,6 @@ header.main-header .header-sticky.active{
     position: absolute;
     bottom: 20px;
     left: -100px;
-    background-image: url('../images/section-bg-img-2.svg');
     background-repeat: no-repeat;
     background-position: bottom left;
     background-size: cover;
@@ -4467,7 +4450,6 @@ header.main-header .header-sticky.active{
     position: absolute;
     bottom: 150px;
     left: -100px;
-    background-image: url('../images/section-bg-img-2.svg');
     background-repeat: no-repeat;
     background-position: bottom left;
     background-size: cover;
@@ -4603,7 +4585,6 @@ header.main-header .header-sticky.active{
     position: absolute;
     top: 15%;
     left: -70px;
-    background-image: url('../images/section-bg-img-2.svg');
     background-repeat: no-repeat;
     background-position: top left;
     background-size: cover;
@@ -4617,7 +4598,6 @@ header.main-header .header-sticky.active{
     position: absolute;
     top: 40%;
     right: -95px;
-    background-image: url('../images/section-bg-img-1.svg');
     background-repeat: no-repeat;
     background-position: right center;
     background-size: cover;
@@ -4791,7 +4771,6 @@ header.main-header .header-sticky.active{
     position: absolute;
     bottom: 10px;
     left: -70px;
-    background-image: url('../images/section-bg-img-2.svg');
     background-repeat: no-repeat;
     background-position: bottom left;
     background-size: cover;
