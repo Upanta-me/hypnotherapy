@@ -24,7 +24,7 @@ if (!$conn->query($create_table_sql)) {
 }
 
 $bookedSlots = [];
-$sql = "SELECT appointment_time FROM appointment WHERE appointment_date = ?";
+$sql = "SELECT appointment_time FROM appointments WHERE appointment_date = ?";
 $stmt = $conn->prepare($sql);
 if (!$stmt) {
     die("Prepare failed: " . $conn->error);
