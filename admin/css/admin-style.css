@@ -1,0 +1,106 @@
+/* Admin Panel Styles */
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2c3e50;
+    --danger-color: #e74c3c;
+    --success-color: #2ecc71;
+    --warning-color: #f39c12;
+    --light-bg: #f8f9fa;
+    --dark-bg: #343a40;
+}
+
+body {
+    background-color: #f5f5f5;
+    font-family: 'Arial', sans-serif;
+}
+
+.admin-header {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 15px 0;
+}
+
+.sidebar {
+    background-color: var(--secondary-color);
+    color: white;
+    min-height: calc(100vh - 56px);
+}
+
+.sidebar .nav-link {
+    color: white;
+    padding: 10px 15px;
+}
+
+.sidebar .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar .nav-link.active {
+    background-color: var(--primary-color);
+}
+
+.main-content {
+    padding: 20px;
+}
+
+.card {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    margin-bottom: 20px;
+}
+
+.card-header {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.table th {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.btn-action {
+    margin: 0 2px;
+}
+
+.dashboard-stat {
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.dashboard-stat i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.stat-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.stat-success {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.stat-warning {
+    background-color: var(--warning-color);
+    color: white;
+}
+
+.stat-danger {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.login-form {
+    max-width: 400px;
+    margin: 100px auto;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .sidebar {
+        min-height: auto;
+    }
+} 
