@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // ✅ Check for valid time slot (within 9-5 except 1PM)
-    $allowed_times = ["09:00", "10:00", "11:00", "12:00", "14:00", "15:00", "16:00"];
+    $allowed_times = ["09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00"];
     if (!in_array($time, $allowed_times)) {
         echo "Selected time slot is not available.";
         exit;

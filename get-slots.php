@@ -38,8 +38,8 @@ while ($row = $result->fetch_assoc()) {
 $stmt->close();
 
 $allSlots = [
-    "09:00", "10:00", "11:00", "12:00", 
-    "14:00", "15:00", "16:00" // 1:00 PM is break
+    "09:00", "10:00", "11:00", "12:00", "13:00",
+    "14:00", "15:00", "16:00" 
 ];
 
 $availableSlots = array_values(array_diff($allSlots, $bookedSlots));
