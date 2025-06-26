@@ -282,49 +282,17 @@ $conn->close();
                                                 <i class="fas fa-eye"></i>
                                             </a>
                                             <button type="button" 
-                                                    class="btn btn-sm btn-danger" 
-                                                    data-bs-toggle="modal" 
-                                                    data-bs-target="#deleteModal<?php echo $appointment['id']; ?>" 
+                                                    class="btn btn-sm btn-danger delete-btn" 
+                                                    data-appointment-id="<?php echo $appointment['id']; ?>"
+                                                    data-appointment-name="<?php echo htmlspecialchars($appointment['first_name'] . ' ' . $appointment['last_name']); ?>"
+                                                    data-appointment-date="<?php echo date('l, F j, Y', strtotime($appointment['appointment_date'])); ?>"
+                                                    data-appointment-time="<?php echo date('g:i A', strtotime($appointment['appointment_time'])); ?>"
                                                     title="Delete">
                                                 <i class="fas fa-trash"></i>
                                             </button>
                                         </div>
                                         
-                                        <!-- Delete Modal -->
-                                        <div class="modal fade" id="deleteModal<?php echo $appointment['id']; ?>" tabindex="-1">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title">
-                                                            <i class="fas fa-exclamation-triangle me-2"></i>Confirm Delete
-                                                        </h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <div class="alert alert-warning">
-                                                            <i class="fas fa-exclamation-triangle me-2"></i>
-                                                            <strong>Warning:</strong> This action cannot be undone.
-                                                        </div>
-                                                        <p>Are you sure you want to delete the appointment for:</p>
-                                                        <div class="bg-light p-3 rounded">
-                                                            <strong><?php echo htmlspecialchars($appointment['first_name'] . ' ' . $appointment['last_name']); ?></strong><br>
-                                                            <small class="text-muted">
-                                                                <?php echo date('l, F j, Y', strtotime($appointment['appointment_date'])); ?> 
-                                                                at <?php echo date('g:i A', strtotime($appointment['appointment_time'])); ?>
-                                                            </small>
-                                                        </div>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                                            <i class="fas fa-times me-2"></i>Cancel
-                                                        </button>
-                                                        <a href="appointments.php?delete=<?php echo $appointment['id']; ?>" class="btn btn-danger">
-                                                            <i class="fas fa-trash me-2"></i>Delete Appointment
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                     </td>
                                 </tr>
                             <?php endwhile; ?>
@@ -419,6 +387,44 @@ $conn->close();
     </div>
 </div>
 
+<!-- Single Delete Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">
+                    <i class="fas fa-exclamation-triangle me-2 text-warning"></i>Confirm Delete
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-warning mb-3">
+                    <i class="fas fa-exclamation-triangle me-2"></i>
+                    <strong>Warning:</strong> This action cannot be undone.
+                </div>
+                <p class="mb-3">Are you sure you want to delete the appointment for:</p>
+                <div class="bg-light p-3 rounded">
+                    <div class="d-flex align-items-center">
+                        <div class="avatar-circle me-3" id="modalAvatar"></div>
+                        <div>
+                            <strong id="modalClientName"></strong><br>
+                            <small class="text-muted" id="modalAppointmentDetails"></small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    <i class="fas fa-times me-2"></i>Cancel
+                </button>
+                <a href="#" id="confirmDeleteBtn" class="btn btn-danger">
+                    <i class="fas fa-trash me-2"></i>Delete Appointment
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Additional JavaScript for enhanced functionality -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -437,16 +443,30 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Confirm delete with enhanced modal
-    document.querySelectorAll('[data-bs-target^="#deleteModal"]').forEach(button => {
+    // Handle delete button clicks
+    document.querySelectorAll('.delete-btn').forEach(button => {
         button.addEventListener('click', function() {
-            const modal = document.querySelector(this.getAttribute('data-bs-target'));
-            if (modal) {
-                // Add shake animation to modal
-                modal.addEventListener('shown.bs.modal', function() {
-                    this.querySelector('.modal-content').style.animation = 'fadeInUp 0.3s ease-out';
-                });
-            }
+            const appointmentId = this.getAttribute('data-appointment-id');
+            const appointmentName = this.getAttribute('data-appointment-name');
+            const appointmentDate = this.getAttribute('data-appointment-date');
+            const appointmentTime = this.getAttribute('data-appointment-time');
+            
+            // Update modal content
+            document.getElementById('modalClientName').textContent = appointmentName;
+            document.getElementById('modalAppointmentDetails').textContent = `${appointmentDate} at ${appointmentTime}`;
+            document.getElementById('confirmDeleteBtn').href = `appointments.php?delete=${appointmentId}`;
+            
+            // Update avatar
+            const avatar = document.getElementById('modalAvatar');
+            const nameParts = appointmentName.split(' ');
+            const initials = nameParts.length >= 2 
+                ? nameParts[0].charAt(0).toUpperCase() + nameParts[1].charAt(0).toUpperCase()
+                : nameParts[0].charAt(0).toUpperCase();
+            avatar.textContent = initials;
+            
+            // Show modal
+            const modal = new bootstrap.Modal(document.getElementById('deleteModal'));
+            modal.show();
         });
     });
     
@@ -559,17 +579,28 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 }
 
+.modal {
+    z-index: 1055;
+}
+
+.modal-backdrop {
+    z-index: 1050;
+}
+
 .modal-content {
     border: none;
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
 }
 
 .modal-header {
     border-bottom: 1px solid var(--border-color);
+    background-color: #f8f9fa;
 }
 
 .modal-footer {
     border-top: 1px solid var(--border-color);
+    background-color: #f8f9fa;
 }
 
 .alert-warning {
